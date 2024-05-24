@@ -1,0 +1,40 @@
+Aula 02
+ - Manutenção Preventiva
+   # Todas as ações executadas no computador visando que ele tenha um bom funcionamento, evitando paradas desnecessárias.
+   * Ideal que sempre tenhamos uma planilha com a programação das manutenções preventivas dos equipamentos. Toda manutenção preventiva deve ser programada.
+
+    Ex.: Você atua em uma empresa que tem 5 unidades, cada dia da semana você atuará em uma unidade. Na primeira unidade (segundas-feira) temos 20 computadores. Podemos em cada semana executar a manutenção de 5 computadores.
+       - Manutenção preventiva de hardware
+         # Limpeza de poeiras
+         # Verificar cabos
+           - Se integro
+           - Se organizados e firmes (fixos)
+         # Verificar conexões de periféricos
+         # Pode ocorrer com maior espaço de tempo
+           - Troca de pasta térmica
+           - Limpeza contatos da memória RAM
+           - Limpeza contatos das placas de expansão
+       - Manutenção preventiva de software
+         # Updates
+           - Sistema operacional
+           - Banco de dados das vacinas (antivírus)
+           - Demais aplicativos do computador
+         # Limpeza do disco
+           - Apagar arquivos de log e cache de navegação
+           - Remover arquivos temporários (Windows Temp / cache de navegadores
+           - Remover arquivos de atualização do sistema operacional
+           - Remover arquivos da Lixeira
+         # Desfragmentação / Otimização dos arquivos no disco
+         # Verificação com antivírus
+         # Revisar / executar procedimentos de backup de dados
+
+
+ - Manutenção Corretiva
+   # Todas as ações executadas para recuperar o funcionamento do computador, pode ser hardware ou software.
+   -> Identificar qual componente esta apresentando falha e ocasionando a parada do computador, atuar no intuito de corrigir a falha e validar o funcionamento com o usuário.
+
+
+ - Softwares importantes no computador
+   # Antivírus / scan Malwares
+   # Firewall
+      - Sistemas operacionais modernos trazem um sistema de firewall nativo (manter ativo e configurado)
