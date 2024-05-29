@@ -1,0 +1,30 @@
+Analise de problemas de software ou hardware usando Event Viewer (LOGS)
+
+Windows:
+ - No sistema de logs do Windows temos diversos arquivos criados conforme a origem dos logs. Logs refentes a segurança, como por exemplo tentativas de acesso não autorizado, serão marcados no arquivo Security. Temos o arquivo System para os logs do sistema operacional, temos Application para os logs de aplicações, 
+Setup para armazenar as entradas de logs dos processos de instalação de apps, upgrade do sistema operacional. E assim vários outros logs organizados dentro do sistema de pastas.
+ - Podemos ter logs de sucesso e logs de problemas
+ - Nos logs teremos a descrição do ocorrido, informando dependendo do tipo de log, dados da origem, dados do destino, quais aplicações envolvidas.
+ - Nos logs existe uma pasta de logs exclusiva para reportar problemas de hardware.
+ - Para cada tipo de problema vai existir um Event ID que identifica o que ocorreu para gerar um determinado log, e normalmente um possível linha de ação para resolvermos o problema.
+
+Para identificar possíveis problemas de harware podemos usar o o Device Manager do windows.
+ - Dentro da ferramenta, teremos todo o hardware organizado por função, por exemplo Drivers de disco, Monitores, Processadores, etc.
+ - Caso existam problemas de hardware, teremos uma sinalização indicando qual o hardware com alerta ou erro.
+    # Podemos usar as janelas de propriedade dos componentes para identificar os códigos de erros, ficando assim mais fácil de aplicar as correções.
+
+Outra ferramentas que podemos usar para identificar problemas poder ser o Performance Monitor dentro Computer Manager, nele podemos criar coletores que monitoram os recursos do nosso computador gerando gráficos para análise de performance, erros, etc.
+
+O Computer Manager possui dentro dele outras ferramentas importantes para o processo de manuteção dos computares:
+  - Task Scheduler - agenda tarefas para serem executadas conforme o agendamento.
+  - Event Viewer - tratado anteriormente
+  - Shared Folders - trata dos compartilhamentos existentes no computador
+  - Local Users ang Groups - Gestão de usuários e grupos locais do nosso computador
+  - Disk Management - reponsável pela gestão de discos, particionamentos, etc
+  - Services - apresenta todos os serviços instalados e seu status, forma de inicialização, processos de recuperação em caso de falha
+
+Linux:
+ - Podemos ter diversas ferramentas para armazenamento de logs, a mais tradicional gera os arquivos dentro da pasta /var/log podendo ser lidos facilmente com qualquer ferramenta de texto, ou nas distros mais modernas, usando a ferramenta journalctl. Na mesma forma dos logs no Windows devemos identificar o erro e tratar sua correção.
+ - Para identificar hardware, e se reconhecido corretamente podemos usar os comandos lspci ou dmesg.
+
+==> Uma vez identificado pelas ferramentas ou logs qual o erro está sendo apresentado, podemos tratar do processos de correção. Em caso de problema referente a hardware, providenciar a substituição. Em caso de problema em software (driver, aplicativo, programa, etc) procurar validar o processo de instalação e revisar as configurações. Ainda podemos encontrar alguns problemas que são gerados por incompatibilidade entre hardware e software, fazendo com que o funcionamento seja divergente do esperado.

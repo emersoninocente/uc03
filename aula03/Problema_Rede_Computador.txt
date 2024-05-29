@@ -1,0 +1,110 @@
+Funcionamento de uma rede de computadores - local ou internet
+
+ - Inicia ArpaNet (rede militar americana)
+ - Precisa de protocolos para funcionar
+   $ IP - Internet Protocol
+     # Possui duas versões:
+       - IPv4 - mais antigo, atualmente tem sua capacidade de endereços públicos esgotada
+                Possui um tamanho de 32 bits, dividido em 4 octetos. Notação 192.168.10.201
+                Divido em IPs públicos - podem ser roteados na internet e privados - devem funcionar apenas em redes locais (casas, empresas, bares, etc.)
+       - IPv6 - versão atual, já deveria ter substituído na totalidade o IPv4.
+                Possui de 128 bits. Possui notação hexadecimal em 8 blocos de 4 digitos, 2004:AE12:0003:0000:0000:BBEF:0012:1E2C ou podemos representar seguindo regras de contração e supressão: 2004:AE12:3::BBEF:12:1E2C
+                Possui também "blocos" para endereços para redes públicas e privadas.
+       - TCP - protocolo de comunicação de pacotes voltado a conexão entre o cliente e o servidor. Promove reenvio de pacotes perdidos ou recebidos com problema, de forma a garantir a entrega correta e integra dos dados transmitidos entre origem e destino.
+       - UDP - protocolo de comunicação voltada ao tempo real, não tem a finalidade de garantir a correta ordem nos dados transmitidos, pois pacotes atrasados ou perdidos não tem mais significado no processo.
+
+ - Para que possamos executar a comunicação entre dois ou mais dispositivos na rede de computadores, precisamos que cada um tenha uma identificação única dentro da rede. Portanto cada dispositivo deve ter apenas um endereço IPv4 ou IPv6.
+
+ - Como identificar o endereço IP do dispositivo:
+   $ Windows - por aplicativo GUI ou CLI
+               Por CLI podemos usar o comando ipconfig
+
+####################### Exemplo do compando executado em PC ######################################
+C:\Users\adminemi>ipconfig
+Windows IP Configuration
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . : lrrjo031apfe1crfzueemixzph.nx.internal.cloudapp.net
+   Link-local IPv6 Address . . . . . : fe80::716d:f09e:af94:7b50%6
+   IPv4 Address. . . . . . . . . . . : 10.0.0.4
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.0.0.1
+
+##################################################################################################
+
+
+ -> Pensando na nossa disciplina, que trata da manutenção de computadores. Se nosso computador encontra-se com problema de acesso a rede de computadores precisamos:
+
+    1) Identificar o endereço IP do computador
+    2) Identificar qual o bloco de IPs da rede que estou conectado
+       a) Procurar identificar o Gateway da rede
+       b) Procurar identificar o Servidor DHCP
+    3) Verificar se nosso computador tem acesso ao gateway
+       a) Usar o comando ping <ip_do_gateway>
+          Se o comando retornar uma resposta semelhante a saída abaixo, tivemos sucesso no processo de comunicação.
+
+C:\Users\emers>ping 192.168.1.1
+
+Pinging 192.168.1.1 with 32 bytes of data:
+Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+Reply from 192.168.1.1: bytes=32 time=1ms TTL=64
+
+Ping statistics for 192.168.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+
+       b) Caso o retorno seja negativo e conforme acima na linha de Packets tivermos em Lost todos os pacotes enviados, temos problema de conexção com o gateway.
+
+    4) Verificar se temos comunicação para a rede de destino:
+       Exemplo: desejo chegar ao IP 185.199.109.153
+       Posso executar o comando: ping 185.199.109.153 onde posso ter resposta como no exemplo anterior ou posso usar o comando: tracert 185.199.109.153, este comando vai nos mostrar a rota que esta sendo percorrida até o destino 185.199.109.153.
+
+C:\Users\emers>tracert 1.1.1.1
+
+Tracing route to one.one.one.one [1.1.1.1]
+over a maximum of 30 hops:
+
+  1     1 ms     1 ms     1 ms  gpon.net [192.168.1.1]
+  2     4 ms     2 ms     3 ms  10.255.255.230 [10.255.255.230]
+  3     5 ms     2 ms     1 ms  172.26.125.177 [172.26.125.177]
+  4    42 ms     2 ms     2 ms  186-219-129-20.static.sebratel.psi.br [186.219.129.20]
+  5     9 ms     2 ms     6 ms  172.19.2.10 [172.19.2.10]
+  6     4 ms     2 ms     2 ms  172.19.2.181 [172.19.2.181]
+  7     3 ms     3 ms     7 ms  172.19.2.178 [172.19.2.178]
+  8     4 ms     3 ms     3 ms  172.26.160.181 [172.26.160.181]
+  9     3 ms     3 ms     3 ms  198.18.32.53
+ 10    23 ms    21 ms    23 ms  207-135-213-1f9.seaborn.net [207.135.213.19]
+ 11    24 ms    23 ms    57 ms  as13335.saopaulo.sp.ix.br [187.16.208.188]
+ 12    65 ms    29 ms    37 ms  172.68.16.35
+ 13    26 ms    23 ms    23 ms  one.one.one.one [1.1.1.1]
+
+Trace complete.
+
+    5) Processo de comunicação com o serviço. Exemplo o IP acima queremos uma página web (portas 80 ou 443)
+       Para isto podemos usar o comando: telnet IP_destino Porta_destino
+       Caso exita conexão com o serviço, ficaremos com a tela totalmente preta ou caso servidor esteja configurado com uma resposta padrão podemos ter esta resposta na tela.
+
+    Assim caso identifiquemos algum problema no processo de comunicação na rede de computadores, podemos buscar a solução do problema.
+       1) Caso problema seja de não "atingirmos" o gateway, pode ser que nossas configurações de rede (endereço IP) esteja errada, podemos "resetar" o endereço IP, usando os comandos: ipconfig /release (apaga as config de rede) e o comando ipconfig /renew (força a renovação do endereço IP).
+       2) Em caso do gateway responder, podemos testar acesso a internet (por exemplo 1.1.1.1 ou 8.8.8.8) usando o comando PING para algum endereço IP externo. Caso gateway não responda, precisamos validar se temos internet, ou acesso a rede remota.
+       3) Em caso de acesso a uma rede "interna" da empresa, podemos usar o comando tracert para validar se o caminho (rota) está correto. Caso a rota esteja errada na config do gateway, precisamos solicitar a correção.
+       4) Validar se a tradução do nome para endereço IP esta correta (serviço DNS), para isto podemos usar o comando nslookup <nome_do_servidor>, em caso de dúvida se o DNS está traduzindo corretamente podemos usar o comando nslookup <nome_do_servidor> 1.1.1.1 ou nslookup <nome_do_servidor> 8.8.8.8. Caso DNS esteja retornando nomes de forma errônea, devemos solicitar a correção para o administrador do serviço.
+       5) Para validarmos se o problema não está na aplicação, podemos usar o comando telnet <nome_do_destino_ou_IP> <porta_do_serviço)
+
+
+   $ Linux temos algumas mudanças nos nomes dos comandos, abaixo os pricipais:
+     ipconfig -> ifconfig
+     nslookup -> nsloookup
+     tracert -> traceroute ou tracepath
+
+
+### Configurações de endereço IP para um host
+
+ -> Pode ser de duas formas:
+    Dinâmica ou DHCP - neste forma não há intervençaõ do administrador nos parâmetros de configuração, pois deve existir um servidor DHCP na rede que vai informar os dados de config. Neste caso, enquanto o host cliente permanecer na rede, ele usará o mesmo endereço IP. Mesmo saido da rede por certo tempo, o servidor DHCP poderá manter os dados fornecidos a um host por um período determinado pelo administrador.
+    Manual: nesta forma o administrador deve saber quais os parâmetros de configuração devem ser aplicados ao host. Informando endereço IP, mascara de rede, gateway e DNS. Uma vez setado a configuação desta forma, os dados não são alterados.
+
