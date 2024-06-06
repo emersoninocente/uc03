@@ -1,0 +1,12 @@
+Catálogo de Serviços
+Modelo:
+ - Criação de conta de usuário de rede (SLA - 1 dia)
+ - Criação de conta de e-mail para usuário (SLA - 2 dias)(Capacity 300 contas e-mail)
+ - Instalação de software no computador (SLA - 1dia)
+ - Configuração da conta de e-mail (SLA - 4 horas)
+ - Manutenção de software ...
+ - Manutenção de hardware
+ - Ajuste de espaço em disco virtual
+ - Criação de conta de acesso ao ERP
+ - Liberação de acesso internet
+ - Liberação de acesso wifi
