@@ -1,0 +1,9 @@
+Glossário TI
+ - On premises: hospedagem dentro da empresa.
+ - Hosting: hospedagem fora da empresa. Pode ser de equipamentos da empresa (colocation) ou pode ser de equipamentos locados.
+ - Cloud: pode ser desde locação de servidores virtuais a somente serviços.
+   $ IaaS: Infraestrutura como serviço (VMs, redes virtuais, armazenamentos virtuais,etc)
+   $ PaaS: Plataforma como serviço.
+   $ SaaS: Serviços como serviço.
+ - ROI: retorno sobre o investimento.
+ - SLA: garantia de nível de serviço
