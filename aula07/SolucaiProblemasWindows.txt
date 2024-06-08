@@ -1,0 +1,37 @@
+Soluções de problemas do Winodws
+ - Iniciar > Configurações > Atualização e Segurança > Soluções de Problemas
+     https://support.microsoft.com/pt-br/windows/solucionar-problemas-de-atualiza%C3%A7%C3%A3o-do-windows-188c2b0f-10a7-d72f-65b8-32d177eb136c#WindowsVersion=Windows_10
+
+ - Iniciar > Configurações > Sistema
+  - Som
+  - Notificações
+  - Energia e Suspensão
+  - Armazenamento
+    * Espaço usado por apps
+    * Temporários
+
+ - Iniciar > Configurações > Rede e Internet
+   * All
+     - Proxy: quando usamos um servidor para ter acesso a internet, este servidor é responsável por receber as solicitações de acessos internet, processar e repassar os dados recebidos para o solicitante. Executa a gestão dos acessos internet e também pode aplicar uma camada de segurança aos sites visitados.
+
+ - Iniciar > Configurações > Aplicativos
+   * Aplicativos padrão
+   * Inicialização
+
+ - Iniciar > Configurações > Contas
+   * Suas informações
+   * Email e contas
+   * Opções de entrada
+   * Backup do Windows
+
+ - Iniciar > Configurações > Hora e Idioma
+   * All
+
+ - Iniciar > Configurações > Pesquisar
+   * Pesquisa do Windows
+
+ - Iniciar > Configurações > Atualização e Segurança
+   * Windows Update
+     -> Download Cumulative Update
+        https://www.catalog.update.microsoft.com/Search.aspx?q=windows%2010%20cumulative%20update
+   * Otimização de Entrega
